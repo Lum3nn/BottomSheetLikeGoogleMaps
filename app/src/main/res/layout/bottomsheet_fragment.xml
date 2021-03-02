@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
+
+    <TextView
+        android:textSize="18sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="@string/lorem_ipsum" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/baseRecycler"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:nestedScrollingEnabled="false"
+        android:orientation="horizontal"
+        android:paddingHorizontal="4dp"
+        android:paddingBottom="16dp"
+        app:behavior_hideable="false"
+        app:behavior_peekHeight="56dp"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+        tools:listitem="@layout/bottomsheet_item" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
