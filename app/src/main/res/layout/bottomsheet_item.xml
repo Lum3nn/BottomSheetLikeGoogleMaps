@@ -28,7 +28,5 @@
         android:layout_height="80dp"
         android:layout_below="@+id/imgItem"
         android:gravity="center"
-        android:text="testowy Klik i przekierowanie"
         android:textSize="20sp" />
 </RelativeLayout>
-

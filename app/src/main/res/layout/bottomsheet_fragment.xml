@@ -7,14 +7,15 @@
     android:background="@drawable/background">
 
     <TextView
-        android:textSize="18sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="16dp"
-        android:text="@string/lorem_ipsum" />
+        android:text="@string/lorem_ipsum"
+        android:textSize="17sp"
+        android:textStyle="bold" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/baseRecycler"
+        android:id="@+id/bottomSheetRecycler"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:nestedScrollingEnabled="false"
@@ -27,4 +28,3 @@
         tools:listitem="@layout/bottomsheet_item" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
-

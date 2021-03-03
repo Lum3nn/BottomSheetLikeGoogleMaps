@@ -7,43 +7,43 @@ import android.widget.RelativeLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bottomsheetexample.databinding.BottomsheetItemBinding
 
-class BottomSheetAdapter() :
-    RecyclerView.Adapter<BottomSheetAdapter.BaseSheetViewHolder>() {
+class BottomSheetAdapter() : RecyclerView.Adapter<BottomSheetAdapter.BottomSheetItemViewHolder>() {
 
-    var data: List<Base> = emptyList()
+    var data: List<Item> = emptyList()
     var offset: Float = 0.0F
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseSheetViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BottomSheetItemViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val itemView = BottomsheetItemBinding.inflate(layoutInflater, parent, false)
 
-        return BaseSheetViewHolder(itemView)
+        return BottomSheetItemViewHolder(itemView)
     }
 
-    fun loadData(newData: List<Base>) {
+    fun loadData(newData: List<Item>) {
         data = newData
         notifyDataSetChanged()
     }
 
-    override fun onBindViewHolder(holder: BaseSheetViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: BottomSheetItemViewHolder, position: Int) {
         holder.bind(data[position])
     }
 
     override fun getItemCount(): Int = data.size
 
-    class BaseSheetViewHolder(
+    class BottomSheetItemViewHolder(
         private val binding: BottomsheetItemBinding,
     ) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(baseObject: Base) {
-            binding.imgItem.setImageResource(baseObject.id)
-            binding.textField.text = baseObject.text
+        fun bind(item: Item) {
+            binding.imgItem.setImageResource(item.id)
+            binding.textField.text = item.text
         }
 
         fun changeHeight(slideOffset: Float) {
             val imgLp = binding.imgItem.layoutParams as RelativeLayout.LayoutParams
-            val pos = (slideOffset * 100).toInt()
-            imgLp.height = pos.fromDpToPx().toInt()
+            val imgHeight = 100
+            val actualHeight = (slideOffset * imgHeight).toInt()
+            imgLp.height = actualHeight.fromDpToPx().toInt()
             binding.imgItem.layoutParams = imgLp
         }
     }
